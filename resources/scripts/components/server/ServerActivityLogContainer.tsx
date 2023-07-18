@@ -32,8 +32,8 @@ export default () => {
 
     return (
         <ServerContentBlock
-            title={'Server Activity'}
-            description={'View activity on this server.'}
+            title={'服务器日志'}
+            description={'查看此服务器的日志。'}
             showFlashKey={'server:activity'}
         >
             {(filters.filters?.event || filters.filters?.ip) && (

@@ -38,8 +38,8 @@ export default () => {
 
     return (
         <ServerContentBlock
-            title={'Schedules'}
-            description={'Manage scheduled functions for your server.'}
+            title={'计划任务'}
+            description={'管理服务器的定时功能。'}
             showFlashKey={'schedules'}
         >
             {!schedules.length && loading ? (
@@ -48,7 +48,7 @@ export default () => {
                 <>
                     {schedules.length === 0 ? (
                         <p css={tw`text-sm text-center text-neutral-300`}>
-                            There are no schedules configured for this server.
+                            此服务器没有配置任何计划任务。
                         </p>
                     ) : (
                         schedules.map((schedule) => (
@@ -70,7 +70,7 @@ export default () => {
                         <div css={tw`mt-8 flex justify-end`}>
                             <EditScheduleModal visible={visible} onModalDismissed={() => setVisible(false)} />
                             <Button type={'button'} onClick={() => setVisible(true)}>
-                                Create schedule
+                                创建计划任务
                             </Button>
                         </div>
                     </Can>

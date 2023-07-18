@@ -41,28 +41,28 @@ export default () => {
 
     return (
         <PageContentBlock
-            title={'Account API'}
-            description={'Create API keys to interact with the Panel.'}
+            title={'账户 API'}
+            description={'创建 API 密钥以与面板进行交互。'}
             showFlashKey={'account'}
         >
             <div className={'md:flex flex-nowrap my-10'}>
-                <ContentBox title={'Create API Key'} css={tw`flex-none w-full md:w-1/2`}>
+                <ContentBox title={'创建 API 密钥'} css={tw`flex-none w-full md:w-1/2`}>
                     <CreateApiKeyForm onKeyCreated={(key) => setKeys((s) => [...s!, key])} />
                 </ContentBox>
-                <ContentBox title={'API Keys'} css={tw`flex-1 overflow-hidden mt-8 md:mt-0 md:ml-8`}>
+                <ContentBox title={'API 密钥'} css={tw`flex-1 overflow-hidden mt-8 md:mt-0 md:ml-8`}>
                     <SpinnerOverlay visible={loading} />
                     <Dialog.Confirm
-                        title={'Delete API Key'}
-                        confirm={'Delete Key'}
+                        title={'删除 API 密钥'}
+                        confirm={'删除 密钥'}
                         open={!!deleteIdentifier}
                         onClose={() => setDeleteIdentifier('')}
                         onConfirmed={() => doDeletion(deleteIdentifier)}
                     >
-                        All requests using the <Code>{deleteIdentifier}</Code> key will be invalidated.
+                        所有使用密钥 <Code>{deleteIdentifier}</Code> 的请求将被作废。
                     </Dialog.Confirm>
                     {keys.length === 0 ? (
                         <p css={tw`text-center text-sm`}>
-                            {loading ? 'Loading...' : 'No API keys exist for this account.'}
+                            {loading ? '加载中...' : '该账户不存在任何 API 密钥。'}
                         </p>
                     ) : (
                         keys.map((key, index) => (

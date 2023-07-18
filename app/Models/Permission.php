@@ -107,12 +107,12 @@ class Permission extends Model
         ],
 
         'control' => [
-            'description' => 'Permissions that control a user\'s ability to control the power state of a server, or send commands.',
+            'description' => '控制用户对服务器的电源状态或发送命令的能力的权限。',
             'keys' => [
-                'console' => 'Allows a user to send commands to the server instance via the console.',
-                'start' => 'Allows a user to start the server if it is stopped.',
-                'stop' => 'Allows a user to stop a server if it is running.',
-                'restart' => 'Allows a user to perform a server restart. This allows them to start the server if it is offline, but not put the server in a completely stopped state.',
+                'console' => '允许用户通过控制台向服务器实例发送命令。',
+                'start' => '允许用户在服务器停止时启动服务器。',
+                'stop' => '允许用户停止运行中的服务器。',
+                'restart' => '允许用户执行服务器重启。这允许他们在服务器离线时启动服务器，但不能完全停止服务器。',
             ],
         ],
 

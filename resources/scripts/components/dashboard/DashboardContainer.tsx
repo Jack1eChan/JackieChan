@@ -56,10 +56,10 @@ export default () => {
                     <>
                         <div>
                             <h1 className={'text-5xl'}>
-                                {showOnlyAdmin ? 'Showing other servers' : 'Showing your servers'}
+                                {showOnlyAdmin ? '显示其他人的服务器' : '显示您的服务器'}
                             </h1>
                             <h3 className={'text-2xl mt-2 text-neutral-500'}>
-                                Select a server to view, update or modify.
+                                请选择一个服务器以查看、更新或修改。
                             </h3>
                         </div>
                         <Switch
@@ -70,9 +70,9 @@ export default () => {
                     </>
                 ) : (
                     <div>
-                        <h1 className={'text-5xl'}>Welcome, {username}!</h1>
+                        <h1 className={'text-5xl'}>欢迎, {username}!</h1>
                         <h3 className={'text-2xl mt-2 text-neutral-500'}>
-                            Select a server from the list of your servers below.
+                            请从下面的服务器列表中选择一个服务器。
                         </h3>
                     </div>
                 )}
@@ -97,7 +97,7 @@ export default () => {
                             </div>
                         ) : (
                             <p className={'text-gray-400 text-lg font-semibold text-center'}>
-                                Doesn&apos;t look like you have any servers here.
+                                看起来您这里没有任何服务器。
                             </p>
                         )
                     }

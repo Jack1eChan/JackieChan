@@ -2,11 +2,11 @@
 @include('partials/admin.jexactyl.nav', ['activeTab' => 'index'])
 
 @section('title')
-    Jexactyl Settings
+    成龙面板设置
 @endsection
 
 @section('content-header')
-    <h1>Jexactyl Settings<small>Configure Jexactyl-specific settings for the Panel.</small></h1>
+    <h1>成龙面板设置<small>为面板配置特定于成龙面板的设置。</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
         <li class="active">Jexactyl</li>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="box-body">
                     @if ($version->isLatestPanel())
-                        You are running Jexactyl <code>{{ config('app.version') }}</code>. 
+                        You are running Jexactyl <code>{{ config('app.version') }}</code>.
                     @else
                         Jexactyl is not up-to-date. <code>{{ config('app.version') }} (current) -> <a href="https://github.com/jexactyl/jexactyl/releases/v{{ $version->getPanel() }}" target="_blank">{{ $version->getPanel() }}</a> (latest)</code>
                     @endif

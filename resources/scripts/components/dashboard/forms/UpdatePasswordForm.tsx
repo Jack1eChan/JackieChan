@@ -69,16 +69,16 @@ export default () => {
                                 id={'current_password'}
                                 type={'password'}
                                 name={'current'}
-                                label={'Current Password'}
+                                label={'当前密码'}
                             />
                             <div css={tw`mt-6`}>
                                 <Field
                                     id={'new_password'}
                                     type={'password'}
                                     name={'password'}
-                                    label={'New Password'}
+                                    label={'新的密码'}
                                     description={
-                                        'Your new password should be at least 8 characters in length and unique to this website.'
+                                        '您的新密码应至少包含8个字符，并且在本网站上是唯一的。'
                                     }
                                 />
                             </div>
@@ -87,11 +87,11 @@ export default () => {
                                     id={'confirm_new_password'}
                                     type={'password'}
                                     name={'confirmPassword'}
-                                    label={'Confirm New Password'}
+                                    label={'确认新的密码'}
                                 />
                             </div>
                             <div css={tw`mt-6`}>
-                                <Button disabled={isSubmitting || !isValid}>Update Password</Button>
+                                <Button disabled={isSubmitting || !isValid}>修改密码</Button>
                             </div>
                         </Form>
                     </React.Fragment>

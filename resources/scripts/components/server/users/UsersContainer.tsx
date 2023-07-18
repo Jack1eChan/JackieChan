@@ -48,12 +48,12 @@ export default () => {
 
     return (
         <ServerContentBlock
-            title={'Users'}
-            description={'Add and remove users from your server.'}
+            title={'子用户'}
+            description={'添加和删除服务器上的子用户。'}
             showFlashKey={'users'}
         >
             {!subusers.length ? (
-                <p css={tw`text-center text-sm text-neutral-300`}>It looks like you don&apos;t have any subusers.</p>
+                <p css={tw`text-center text-sm text-neutral-300`}>看起来您没有任何子用户。</p>
             ) : (
                 subusers.map((subuser) => <UserRow key={subuser.uuid} subuser={subuser} />)
             )}

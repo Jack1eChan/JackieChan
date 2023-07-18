@@ -85,19 +85,19 @@ export default () => {
 
     return (
         <>
-            <ChartBlock title={'CPU Load'}>
+            <ChartBlock title={'CPU使用率'}>
                 <Line {...cpu.props} />
             </ChartBlock>
-            <ChartBlock title={'Disk'}>
+            <ChartBlock title={'硬盘使用量'}>
                 <Line {...disk.props} />
             </ChartBlock>
-            <ChartBlock title={'Memory'}>
+            <ChartBlock title={'内存使用量'}>
                 <Line {...memory.props} />
             </ChartBlock>
-            <ChartBlock title={'Network In'}>
+            <ChartBlock title={'网络流入速率'}>
                 <Line {...networkIn.props} />
             </ChartBlock>
-            <ChartBlock title={'Network Out'}>
+            <ChartBlock title={'网络流出速率'}>
                 <Line {...networkOut.props} />
             </ChartBlock>
         </>

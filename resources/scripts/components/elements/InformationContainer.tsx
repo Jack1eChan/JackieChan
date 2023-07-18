@@ -41,31 +41,31 @@ export default () => {
         <>
             {store.earn.enabled ? (
                 <InformationBox icon={faCircle} iconCss={'animate-pulse'}>
-                    Earning <span className={'text-green-600'}>{store.earn.amount}</span> credits / min.
+                    每在线1分钟获得 <span className={'text-green-600'}>{store.earn.amount}</span> 积分。
                 </InformationBox>
             ) : (
                 <InformationBox icon={faExclamationCircle}>
-                    Credit earning is currently <span className={'text-red-600'}>disabled.</span>
+                    在线赚积分功能 <span className={'text-red-600'}>未开启</span>。
                 </InformationBox>
             )}
             <InformationBox icon={faCoins}>
-                You have <span className={'text-green-600'}>{bal}</span> credits available.
+                您当前拥有 <span className={'text-green-600'}>{bal}</span> 积分。
             </InformationBox>
             <InformationBox icon={faUserLock}>
                 {user.useTotp ? (
                     <>
-                        <span className={'text-green-600'}>2FA is enabled</span> on your account.
+                        您的账户已开启<span className={'text-green-600'}>双因素身份验证</span> 。
                     </>
                 ) : (
                     <>
-                        <span className={'text-yellow-600'}>Enable 2FA</span> to secure your account.
+                        您的账户未开启<span className={'text-yellow-600'}>双因素身份验证</span> 。
                     </>
                 )}
             </InformationBox>
             {!user.verified ? (
                 <InformationBox icon={faTimesCircle} iconCss={'text-yellow-500'}>
                     <span onClick={verify} className={'cursor-pointer text-blue-400'}>
-                        Verify your account to get started.
+                        请先完成账户验证以开始使用。
                     </span>
                 </InformationBox>
             ) : (
@@ -83,7 +83,7 @@ export default () => {
                             {formatDistanceToNowStrict(activity.timestamp, { addSuffix: true })}
                         </>
                     ) : (
-                        'Unable to get latest activity logs.'
+                        '无法获取最新的事件日志。'
                     )}
                 </InformationBox>
             )}

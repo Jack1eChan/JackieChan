@@ -80,8 +80,8 @@ export default () => {
     };
 
     return (
-        <ServerContentBlock title={'File Manager'} description={'Create, edit and view files.'} showFlashKey={'files'}>
-            <Input onChange={searchFiles} className={'mb-4 j-up'} placeholder={'Search for files and folders...'} />
+        <ServerContentBlock title={'文件管理器'} description={'创建、编辑和查看文件。'} showFlashKey={'files'}>
+            <Input onChange={searchFiles} className={'mb-4 j-up'} placeholder={'搜索文件和目录。...'} />
             <div css={tw`flex flex-wrap-reverse md:flex-nowrap justify-center mb-4`}>
                 <ErrorBoundary>
                     <div className={'j-right'}>
@@ -104,7 +104,7 @@ export default () => {
                             <UploadButton />
                             <PullFileModal />
                             <NavLink to={`/server/${id}/files/new${window.location.hash}`}>
-                                <Button>New File</Button>
+                                <Button>新建文件</Button>
                             </NavLink>
                         </div>
                     </Can>
@@ -137,15 +137,15 @@ export default () => {
                 </>
             )}
             <Can action={'file.sftp'}>
-                <TitledGreyBox title={'SFTP Details'} className={'mt-8 md:mt-6'}>
+                <TitledGreyBox title={'SFTP 信息'} className={'mt-8 md:mt-6'}>
                     <div>
-                        <Label>Server Address</Label>
+                        <Label>服务器地址</Label>
                         <CopyOnClick text={`sftp://${ip(sftp.ip)}:${sftp.port}`}>
                             <Input type={'text'} value={`sftp://${ip(sftp.ip)}:${sftp.port}`} readOnly />
                         </CopyOnClick>
                     </div>
                     <div css={tw`mt-6`}>
-                        <Label>Username</Label>
+                        <Label>用户名</Label>
                         <CopyOnClick text={`${username}.${id}`}>
                             <Input type={'text'} value={`${username}.${id}`} readOnly />
                         </CopyOnClick>
@@ -154,13 +154,13 @@ export default () => {
                         <div css={tw`flex-1`}>
                             <div css={tw`border-l-4 border-cyan-500 p-3`}>
                                 <p css={tw`text-xs text-neutral-200`}>
-                                    Your SFTP password is the same as the password you use to access this panel.
+                                    您的SFTP密码与您用于访问此面板的密码相同。
                                 </p>
                             </div>
                         </div>
                         <div css={tw`ml-4`}>
                             <a href={`sftp://${username}.${id}@${ip(sftp.ip)}:${sftp.port}`}>
-                                <Button.Text variant={Button.Variants.Secondary}>Launch SFTP</Button.Text>
+                                <Button.Text variant={Button.Variants.Secondary}>连接 SFTP</Button.Text>
                             </a>
                         </div>
                     </div>

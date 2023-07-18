@@ -52,7 +52,7 @@ const terminalProps: ITerminalOptions = {
 };
 
 export default () => {
-    const TERMINAL_PRELUDE = '\u001b[1m\u001b[33mJexactyl: \u001b[0m';
+    const TERMINAL_PRELUDE = '\u001b[1m\u001b[33m控制台: \u001b[0m';
     const ref = useRef<HTMLDivElement>(null);
     const terminal = useMemo(() => new Terminal({ ...terminalProps }), []);
     const fitAddon = new FitAddon();
@@ -94,7 +94,7 @@ export default () => {
         );
 
     const handlePowerChangeEvent = (state: string) =>
-        terminal.writeln(TERMINAL_PRELUDE + 'Server marked as ' + state + '...\u001b[0m');
+        terminal.writeln(TERMINAL_PRELUDE + '服务器标记为 ' + state + '...\u001b[0m');
 
     const handleCommandKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'ArrowUp') {
@@ -216,11 +216,11 @@ export default () => {
                     />
                     <div className={classNames('text-gray-100', styles.command_icon)}>
                         {!isConsoleDetached && (
-                            <Tooltip content={'Launch console in external window'}>
+                            <Tooltip content={'在外部窗口中启动控制台。'}>
                                 <Icon.ExternalLink className={'w-4 h-4'} onClick={() => popout()} />
                             </Tooltip>
                         )}
-                        <Tooltip content={'Type a command...'}>
+                        <Tooltip content={'请输入一个命令...'}>
                             <Icon.ChevronsRight
                                 className={'w-4 h-4 ml-2 hover:animate-pulse'}
                                 onClick={() => {

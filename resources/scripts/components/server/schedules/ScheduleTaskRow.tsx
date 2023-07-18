@@ -19,13 +19,13 @@ interface Props {
 const getActionDetails = (action: string): [string] => {
     switch (action) {
         case 'command':
-            return ['Send Command'];
+            return ['发送命令'];
         case 'power':
-            return ['Send Power Action'];
+            return ['控制电源'];
         case 'backup':
-            return ['Create Backup'];
+            return ['创建备份'];
         default:
-            return ['Unknown Action'];
+            return ['未知操作'];
     }
 };
 

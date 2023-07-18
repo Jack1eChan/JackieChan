@@ -93,7 +93,7 @@ export default () => {
     }, [instance, connected]);
 
     return (
-        <ServerContentBlock title={'Server Analytics'} description={'View statistics and performance for your server.'}>
+        <ServerContentBlock title={'服务器分析'} description={'查看服务器的统计数据和性能。'}>
             <div className={'grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-2'}>
                 <div className={'col-span-2 grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4'}>
                     <UsageMetrics />
@@ -104,17 +104,17 @@ export default () => {
                         <PowerButtons className={'flex space-x-4 text-center mb-4'} />
                     </Can>
                     <ContentBox>
-                        <UsageBox progress={parseInt(cpuUsed)} title={'CPU Usage'} content={`${cpuUsed}% used`} />
+                        <UsageBox progress={parseInt(cpuUsed)} title={'CPU 使用率'} content={`${cpuUsed}% 已用`} />
                         <UsageBox
                             progress={parseInt(memoryUsed)}
-                            title={'Memory Usage'}
-                            content={`${memoryUsed}% used`}
+                            title={'内存 使用率'}
+                            content={`${memoryUsed}% 已用`}
                         />
-                        <UsageBox progress={parseInt(diskUsed)} title={'Disk Usage'} content={`${diskUsed}% used`} />
+                        <UsageBox progress={parseInt(diskUsed)} title={'硬盘 使用量'} content={`${diskUsed}% 已用`} />
                     </ContentBox>
-                    <TitledGreyBox title={'Performance Metrics'} className={'rounded mt-4'}>
+                    <TitledGreyBox title={'性能指标'} className={'rounded mt-4'}>
                         {!messages || messages.length < 1 ? (
-                            <p className={'text-gray-400 text-center'}>No metrics are currently available.</p>
+                            <p className={'text-gray-400 text-center'}>当前没有可用的指标数据。</p>
                         ) : (
                             <>
                                 {messages.slice(0, 6).map((message) => (

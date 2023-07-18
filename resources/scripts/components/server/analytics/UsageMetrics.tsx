@@ -27,9 +27,9 @@ const getColorFromStatus = (status: string): string => {
 
 const getStatusFromUsage = (usage: number): string => {
     if (usage <= 0) return 'N/A';
-    if (usage <= 25) return 'low';
-    if (usage >= 80) return 'high';
-    else return 'normal';
+    if (usage <= 25) return '低';
+    if (usage >= 80) return '高';
+    else return '一般';
 };
 
 export default () => {
@@ -80,7 +80,7 @@ export default () => {
                 <h3
                     className={'font-header transition-colors duration-100 group-hover:text-gray-50 font-semibold mb-2'}
                 >
-                    Current Status
+                    当前状态
                 </h3>
             </div>
             <div className={'grid grid-cols-2 gap-3 mx-4'}>
@@ -89,13 +89,13 @@ export default () => {
                         <p className={'font-bold text-xl'}>
                             <FontAwesomeIcon icon={faClock} size={'1x'} />
                             <br />
-                            Server is <span className={getColorFromStatus(status ?? 'offline')}>{status}</span>
+                            服务器 <span className={getColorFromStatus(status ?? 'offline')}>{status}</span>
                         </p>
                         <p className={'font-semibold text-sm text-gray-400 mt-1'}>
                             {status === 'running' ? (
                                 <UptimeDuration uptime={stats.uptime / 1000} />
                             ) : (
-                                <>Unable to fetch uptime</>
+                                <>无法获取在线时间</>
                             )}
                         </p>
                     </div>
@@ -105,9 +105,9 @@ export default () => {
                         <p className={'font-bold text-xl'}>
                             <FontAwesomeIcon icon={faMicrochip} size={'1x'} />
                             <br />
-                            CPU usage is {getStatusFromUsage(parseInt(cpuUsed))}
+                            CPU使用率 {getStatusFromUsage(parseInt(cpuUsed))}
                         </p>
-                        <p className={'font-semibold text-sm text-gray-400 mt-1'}>Using {cpuUsed}%</p>
+                        <p className={'font-semibold text-sm text-gray-400 mt-1'}> {cpuUsed}%</p>
                     </div>
                 </ContentBox>
                 <ContentBox isLight>
@@ -115,9 +115,9 @@ export default () => {
                         <p className={'font-bold text-xl'}>
                             <FontAwesomeIcon icon={faMemory} size={'1x'} />
                             <br />
-                            RAM usage is {getStatusFromUsage(parseInt(memoryUsed))}
+                            内存使用率 {getStatusFromUsage(parseInt(memoryUsed))}
                         </p>
-                        <p className={'font-semibold text-sm text-gray-400 mt-1'}>Using {memoryUsed}%</p>
+                        <p className={'font-semibold text-sm text-gray-400 mt-1'}> {memoryUsed}%</p>
                     </div>
                 </ContentBox>
                 <ContentBox isLight>
@@ -125,9 +125,9 @@ export default () => {
                         <p className={'font-bold text-xl'}>
                             <FontAwesomeIcon icon={faHdd} size={'1x'} />
                             <br />
-                            Disk usage is {getStatusFromUsage(parseInt(diskUsed))}
+                            硬盘使用率 {getStatusFromUsage(parseInt(diskUsed))}
                         </p>
-                        <p className={'font-semibold text-sm text-gray-400 mt-1'}>Using {diskUsed}%</p>
+                        <p className={'font-semibold text-sm text-gray-400 mt-1'}> {diskUsed}%</p>
                     </div>
                 </ContentBox>
             </div>
