@@ -12,7 +12,7 @@
 @section('content-header')
     <h1>Nodes<small>All nodes available on the system.</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li class="active">Nodes</li>
     </ol>
 @endsection

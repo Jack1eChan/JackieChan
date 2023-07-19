@@ -7,7 +7,7 @@
 @section('content-header')
     <h1>New Egg<small>Create a new Egg to assign to servers.</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li><a href="{{ route('admin.nests') }}">Nests</a></li>
         <li class="active">New Egg</li>
     </ol>

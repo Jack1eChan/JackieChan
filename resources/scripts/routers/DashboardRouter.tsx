@@ -45,7 +45,7 @@ export default () => {
                         {referrals && (
                             <NavLink to={'/account/referrals'}>
                                 <div css={tw`flex items-center justify-between`}>
-                                    推广 <Icon.DollarSign css={tw`ml-1`} size={18} />
+                                    邀请 <Icon.DollarSign css={tw`ml-1`} size={18} />
                                 </div>
                             </NavLink>
                         )}

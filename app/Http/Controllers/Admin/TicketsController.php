@@ -96,7 +96,7 @@ class TicketsController extends Controller
         Ticket::findOrFail($id)->delete();
         TicketMessage::where('ticket_id', $id)->delete();
 
-        $this->alert->success('Ticket ' . $id . ' has been deleted.')->flash();
+        $this->alert->success('删除了工单 ' . $id . ' 。')->flash();
 
         return redirect()->route('admin.tickets.index');
     }

@@ -43,7 +43,7 @@ class ReferralsController extends Controller
             $this->settings->set('jexactyl::referrals:' . $key, $value);
         }
 
-        $this->alert->success('Referral system has been updated.')->flash();
+        $this->alert->success('修改邀请系统成功。')->flash();
 
         return redirect()->route('admin.jexactyl.referrals');
     }

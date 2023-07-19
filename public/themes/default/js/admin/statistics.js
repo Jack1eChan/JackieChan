@@ -12,7 +12,7 @@ const freeMemory = Jexactyl.memoryTotal - Jexactyl.memoryUsed;
 const diskChart = new Chart($("#disk_chart"), {
     type: "pie",
     data: {
-        labels: ["Free Disk", "Used Disk"],
+        labels: ["空闲硬盘", "已使用硬盘"],
         datasets: [{
             backgroundColor: ["#189a1c", "hsl(211, 22%, 21%)"],
             data: [freeDisk, Jexactyl.diskUsed]
@@ -23,7 +23,7 @@ const diskChart = new Chart($("#disk_chart"), {
 const ramChart = new Chart($("#ram_chart"), {
     type: "pie",
     data: {
-        labels: ["Free RAM", "Used RAM"],
+        labels: ["空闲内存", "已使用内存"],
         datasets: [{
             backgroundColor: ["#189a1c", "hsl(211, 22%, 21%)"],
             data: [freeMemory, Jexactyl.memoryUsed]
@@ -34,7 +34,7 @@ const ramChart = new Chart($("#ram_chart"), {
 const serversChart = new Chart($("#servers_chart"), {
     type: "pie",
     data: {
-        labels: ["Active Servers", "Suspended Servers"],
+        labels: ["正常的服务器", "暂停的服务器"],
         datasets: [{
             backgroundColor: ["#189a1c", "hsl(211, 22%, 21%)"],
             data: [active, suspended]

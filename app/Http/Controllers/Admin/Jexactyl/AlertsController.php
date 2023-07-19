@@ -44,7 +44,7 @@ class AlertsController extends Controller
             $this->settings->set('jexactyl::' . $key, $value);
         }
 
-        $this->alert->success('Jexactyl Alert has been updated.')->flash();
+        $this->alert->success('修改成龙面板通知成功。')->flash();
 
         return redirect()->route('admin.jexactyl.alerts');
     }
@@ -57,7 +57,7 @@ class AlertsController extends Controller
         $this->settings->forget('jexactyl::alert:type');
         $this->settings->forget('jexactyl::alert:message');
 
-        $this->alert->success('Jexactyl Alert has been removed.')->flash();
+        $this->alert->success('删除成龙面板通知成功。')->flash();
 
         return redirect()->route('admin.jexactyl.alerts');
     }

@@ -23,7 +23,7 @@ export default () => {
         clearFlashes();
         redeemCoupon(values.code)
             .then(() => {
-                addFlash({ type: 'success', key: 'coupons', message: 'Successfully redeemed the coupon.' });
+                addFlash({ type: 'success', key: 'coupons', message: '使用兑换码成功。' });
             })
             .catch((err) => {
                 addFlash({ type: 'danger', key: 'coupons', message: httpErrorToHuman(err) });
@@ -36,18 +36,18 @@ export default () => {
 
     return (
         <PageContentBlock title={'Coupons'}>
-            <h1 className={'text-5xl'}>Coupons</h1>
-            <h3 className={'text-2xl mt-2 text-neutral-500'}>Redeem coupons given to you.</h3>
+            <h1 className={'text-5xl'}>兑换码</h1>
+            <h3 className={'text-2xl mt-2 text-neutral-500'}>使用您获得的兑换码。</h3>
             <FlashMessageRender byKey={'coupons'} className={'mt-2'} />
-            <ContentBox title={'Redeem'} className={'w-1/4 mt-6'}>
+            <ContentBox title={'兑换码'} className={'w-1/4 mt-6'}>
                 <Formik initialValues={{ code: '' }} onSubmit={submit} validationSchema={schema}>
                     {({ isSubmitting, isValid }) => (
                         <Fragment>
                             <SpinnerOverlay size={'large'} visible={isSubmitting} />
                             <Form>
-                                <Field id={'code'} type={'text'} name={'code'} label={'Enter Code'} />
+                                <Field id={'code'} type={'text'} name={'code'} label={'输入兑换码'} />
                                 <div className={'mt-6'}>
-                                    <Button disabled={isSubmitting || !isValid}>Redeem</Button>
+                                    <Button disabled={isSubmitting || !isValid}>兑换</Button>
                                 </div>
                             </Form>
                         </Fragment>

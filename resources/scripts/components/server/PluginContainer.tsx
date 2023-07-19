@@ -48,7 +48,7 @@ export default () => {
                 addFlash({
                     key: 'server:plugins',
                     type: 'success',
-                    message: 'Plugin installed successfully.',
+                    message: '安装插件成功。',
                 })
             )
             .catch((error) => clearAndAddHttpError(error));

@@ -41,7 +41,7 @@ class PluginController extends ClientApiController
         try {
             $res = $client->request('GET', $api, ['headers' => ['User-Agent' => 'jexactyl/3.x']]);
         } catch (DisplayException $e) {
-            throw new DisplayException('Couldn\'t find any results for that query.');
+            throw new DisplayException('找不到该查询的任何结果。');
         }
 
         $plugins = json_decode($res->getBody(), true);

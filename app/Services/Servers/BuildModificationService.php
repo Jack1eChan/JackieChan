@@ -40,7 +40,7 @@ class BuildModificationService
                 try {
                     Allocation::query()->where('id', $data['allocation_id'])->where('server_id', $server->id)->firstOrFail();
                 } catch (ModelNotFoundException) {
-                    throw new DisplayException('The requested default allocation is not currently assigned to this server.');
+                    throw new DisplayException('所请求的默认端口目前未分配给此服务器。');
                 }
             }
 
@@ -107,7 +107,7 @@ class BuildModificationService
                 // will throw an exception back.
                 if ($allocation === ($data['allocation_id'] ?? $server->allocation_id)) {
                     if (empty($freshlyAllocated)) {
-                        throw new DisplayException('You are attempting to delete the default allocation for this server but there is no fallback allocation to use.');
+                        throw new DisplayException('您正在尝试删除此服务器的默认端口，但没有可供使用的备用端口。');
                     }
 
                     // Update the default allocation to be the first allocation that we are creating.

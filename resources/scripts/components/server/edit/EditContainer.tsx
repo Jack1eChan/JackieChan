@@ -50,7 +50,7 @@ export default () => {
                 addFlash({
                     key: 'server:edit',
                     type: 'success',
-                    message: 'Server resources have been edited successfully.',
+                    message: '修改服务器资源成功。',
                 });
             })
             .catch((error) => clearAndAddHttpError({ key: 'server:edit', error }));

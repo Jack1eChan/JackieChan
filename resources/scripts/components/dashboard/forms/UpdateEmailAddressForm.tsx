@@ -33,7 +33,7 @@ export default () => {
                 addFlash({
                     type: 'success',
                     key: 'account:email',
-                    message: 'Your primary email has been updated.',
+                    message: '您的邮箱修改成功。',
                 })
             )
             .catch((error) =>

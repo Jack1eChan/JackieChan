@@ -22,7 +22,7 @@ class StripeController extends ClientApiController
     public function purchase(StripeRequest $request): JsonResponse
     {
         if (!$this->settings->get('jexactyl::store:stripe:enabled')) {
-            throw new DisplayException('Unable to purchase via Stripe: module not enabled');
+            throw new DisplayException('无法通过 Stripe 购买：模块未启用');
         }
 
         $client = new StripeClient(config('gateways.stripe.secret'));

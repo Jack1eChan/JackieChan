@@ -7,7 +7,7 @@
 @section('content-header')
     <h1>{{ $server->name }}<small>Delete this server from the panel.</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li><a href="{{ route('admin.servers') }}">Servers</a></li>
         <li><a href="{{ route('admin.servers.view', $server->id) }}">{{ $server->name }}</a></li>
         <li class="active">Delete</li>

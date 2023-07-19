@@ -73,7 +73,7 @@ class StoreController extends Controller
             $this->settings->set('jexactyl::' . $key, $value);
         }
 
-        $this->alert->success('If you have enabled a payment gateway, please remember to configure them. <a href="https://docs.jexactyl.com">Documentation</a>')->flash();
+        $this->alert->success('保存成功')->flash();
 
         return redirect()->route('admin.jexactyl.store');
     }

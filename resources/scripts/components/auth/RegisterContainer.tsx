@@ -52,7 +52,7 @@ const RegisterContainer = ({ history }: RouteComponentProps) => {
                     addFlash({
                         key: 'auth:register',
                         type: 'success',
-                        message: 'Account has been successfully created.',
+                        message: '创建用户成功。',
                     });
                     return;
                 }
@@ -81,25 +81,25 @@ const RegisterContainer = ({ history }: RouteComponentProps) => {
             })}
         >
             {({ isSubmitting, setSubmitting, submitForm }) => (
-                <LoginFormContainer title={'Create an Account'} css={tw`w-full flex`}>
+                <LoginFormContainer title={'创建账户'} css={tw`w-full flex`}>
                     <FlashMessageRender byKey={'auth:register'} css={tw`my-3`} />
-                    <Field type={'text'} label={'Username'} name={'username'} css={tw`my-3`} disabled={isSubmitting} />
+                    <Field type={'text'} label={'用户名'} name={'username'} css={tw`my-3`} disabled={isSubmitting} />
                     <Field
                         type={'email'}
-                        label={'Email Address'}
+                        label={'邮箱地址'}
                         name={'email'}
                         css={tw`my-3`}
                         disabled={isSubmitting}
                     />
                     <Field
                         type={'password'}
-                        label={'Password'}
+                        label={'密码'}
                         name={'password'}
                         css={tw`my-3`}
                         disabled={isSubmitting}
                     />
                     <Button type={'submit'} css={tw`my-6 w-full`} size={Button.Sizes.Large} disabled={isSubmitting}>
-                        Register
+                        注册
                     </Button>
                     {recaptchaEnabled && (
                         <Reaptcha

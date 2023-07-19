@@ -8,7 +8,7 @@
 @section('content-header')
     <h1>Mounts<small>Configure and manage additional mount points for servers.</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li class="active">Mounts</li>
     </ol>
 @endsection

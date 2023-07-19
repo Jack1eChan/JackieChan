@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 
 @section('title')
-    Database Hosts
+    数据库主机
 @endsection
 
 @section('content-header')
-    <h1>Database Hosts<small>Database hosts that servers can have databases created on.</small></h1>
+    <h1>数据库主机<small>Database hosts that servers can have databases created on.</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Database Hosts</li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
+        <li class="active">数据库主机</li>
     </ol>
 @endsection
 

@@ -48,7 +48,7 @@ class ApprovalsController extends Controller
             $this->settings->set('jexactyl::approvals:' . $key, $value);
         }
 
-        $this->alert->success('Jexactyl Approval settings have been updated.')->flash();
+        $this->alert->success('修改成龙面板审批设置成功。')->flash();
 
         return redirect()->route('admin.jexactyl.approvals');
     }
@@ -64,11 +64,11 @@ class ApprovalsController extends Controller
             try {
                 User::query()->where('approved', false)->delete();
             } catch (DisplayException $ex) {
-                throw new DisplayException('Unable to complete action: ' . $ex->getMessage());
+                throw new DisplayException('未能完成动作: ' . $ex->getMessage());
             }
         }
 
-        $this->alert->success('All users have been ' . $action === 'approve' ? 'approved ' : 'denied successfully.')->flash();
+        $this->alert->success('所有用户被 ' . $action === 'approve' ? '批准 。' : '拒绝 。')->flash();
 
         return redirect()->route('admin.jexactyl.approvals');
     }
@@ -82,7 +82,7 @@ class ApprovalsController extends Controller
         $user->update(['approved' => true]);
         // This gives the user access to the frontend.
 
-        $this->alert->success($user->username . ' has been approved.')->flash();
+        $this->alert->success($user->username . ' 已被批准。')->flash();
 
         return redirect()->route('admin.jexactyl.approvals');
     }
@@ -97,7 +97,7 @@ class ApprovalsController extends Controller
         // While typically we should look for associated servers, there
         // shouldn't be any present - as the user has been waiting for approval.
 
-        $this->alert->success($user->username . ' has been denied.')->flash();
+        $this->alert->success($user->username . ' 已被拒绝。')->flash();
 
         return redirect()->route('admin.jexactyl.approvals');
     }

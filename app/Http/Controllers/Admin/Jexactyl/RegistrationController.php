@@ -55,7 +55,7 @@ class RegistrationController extends Controller
             $this->settings->set('jexactyl::' . $key, $value);
         }
 
-        $this->alert->success('Jexactyl Registration has been updated.')->flash();
+        $this->alert->success('成龙面板注册设置修改成功。')->flash();
 
         return redirect()->route('admin.jexactyl.registration');
     }

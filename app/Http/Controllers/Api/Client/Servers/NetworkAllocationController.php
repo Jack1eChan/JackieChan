@@ -93,7 +93,7 @@ class NetworkAllocationController extends ClientApiController
     public function store(NewAllocationRequest $request, Server $server): array
     {
         if ($server->allocations()->count() >= $server->allocation_limit) {
-            throw new DisplayException('Cannot assign additional allocations to this server: limit has been reached.');
+            throw new DisplayException('无法为此服务器分配额外的端口：已达到限制。');
         }
 
         $allocation = $this->assignableAllocationService->handle($server);
@@ -118,11 +118,11 @@ class NetworkAllocationController extends ClientApiController
         // Don't allow the deletion of allocations if the server does not have an
         // allocation limit set.
         if (empty($server->allocation_limit)) {
-            throw new DisplayException('You cannot delete allocations for this server: no allocation limit is set.');
+            throw new DisplayException('您无法删除此服务器的端口：未设置端口限制。');
         }
 
         if ($allocation->id === $server->allocation_id) {
-            throw new DisplayException('You cannot delete the primary allocation for this server.');
+            throw new DisplayException('您无法删除此服务器的主端口。');
         }
 
         Allocation::query()->where('id', $allocation->id)->update([

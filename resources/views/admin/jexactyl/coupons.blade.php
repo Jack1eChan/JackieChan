@@ -2,14 +2,14 @@
 @include('partials/admin.jexactyl.nav', ['activeTab' => 'coupons'])
 
 @section('title')
-    Coupons
+    兑换码设置
 @endsection
 
 @section('content-header')
-    <h1>Coupons<small>Create and manage coupons.</small></h1>
+    <h1>兑换码<small>创建并管理兑换码。</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Jexactyl</li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
+        <li class="active">成龙面板</li>
     </ol>
 @endsection
 
@@ -21,22 +21,22 @@
                 <div class="box @if($enabled) box-success @else box-danger @endif">
                     <div class="box-header with-border">
                         <i class="fa fa-cash"></i>
-                        <h3 class="box-title">Coupon System</h3>
+                        <h3 class="box-title">兑换码系统</h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
                             <div class="form-group col-md-3">
-                                <label for="enabled" class="control-label">Status</label>
+                                <label for="enabled" class="control-label">状态</label>
                                 <select name="enabled" id="enabled" class="form-control">
-                                    <option value="1" @if($enabled) selected @endif>Enabled</option>
-                                    <option value="0" @if(!$enabled) selected @endif>Disabled</option>
+                                    <option value="1" @if($enabled) selected @endif>启用</option>
+                                    <option value="0" @if(!$enabled) selected @endif>禁用</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="box-footer">
                         {!! csrf_field() !!}
-                        <button type="submit" name="_method" value="PATCH" class="btn btn-default pull-right">Save</button>
+                        <button type="submit" name="_method" value="PATCH" class="btn btn-default pull-right">保存</button>
                     </div>
                 </div>
             </div>
@@ -47,35 +47,35 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Create Coupon</h3>
+                        <h3 class="box-title">创建兑换码</h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
                             <div class="form-group col-md-3">
-                                <label for="code">Code</label>
+                                <label for="code">兑换码</label>
                                 <input type="text" name="code" id="code" class="form-control"/>
-                                <small>A unique code for the coupon.</small>
+                                <small>唯一的兑换码。</small>
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="credits">Credits</label>
+                                <label for="credits">积分</label>
                                 <input type="number" name="credits" id="credits" class="form-control"/>
-                                <small>The amount of credits to give when redeemed.</small>
+                                <small>使用兑换码时获得的积分。</small>
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="expires">Expires In</label>
+                                <label for="expires">到期时间</label>
                                 <input type="number" name="expires" id="expires" class="form-control" value="12"/>
-                                <small>The amount of time in hours until the coupon expires. Leave blank for never.</small>
+                                <small>优惠券过期前的时间（以小时为单位）。留空表示永不过期。</small>
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="uses">Max Uses</label>
+                                <label for="uses">最大使用次数</label>
                                 <input type="number" name="uses" id="uses" class="form-control" value="1"/>
-                                <small>The maximum amount of times this coupon can be used.</small>
+                                <small>此兑换码的最大使用次数。</small>
                             </div>
                         </div>
                     </div>
                     <div class="box-footer">
                         {!! csrf_field() !!}
-                        <button type="submit" name="_method" value="POST" class="btn btn-default pull-right">Create</button>
+                        <button type="submit" name="_method" value="POST" class="btn btn-default pull-right">创建</button>
                     </div>
                 </div>
             </div>
@@ -85,18 +85,18 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Coupons</h3>
+                    <h3 class="box-title">兑换码</h3>
                 </div>
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <tbody>
                         <tr>
                             <th>ID</th>
-                            <th>Code</th>
-                            <th>Credits</th>
-                            <th>Uses Remaining</th>
-                            <th>Expires At</th>
-                            <th>Expired</th>
+                            <th>兑换码</th>
+                            <th>积分</th>
+                            <th>剩余使用次数</th>
+                            <th>到期时间</th>
+                            <th>状态</th>
                         </tr>
                         @foreach($coupons as $coupon)
                             <tr>
@@ -105,7 +105,7 @@
                                 <td>{{ $coupon->cr_amount }}</td>
                                 <td>{{ $coupon->uses }}</td>
                                 <td>{{ $coupon->expires }}</td>
-                                <td>@if($coupon->expired) Yes @else No @endif</td>
+                                <td>@if($coupon->expired) 已到期 @else 可使用 @endif</td>
                             </tr>
                         @endforeach
                         </tbody>

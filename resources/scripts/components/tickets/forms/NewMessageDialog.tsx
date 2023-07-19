@@ -38,7 +38,7 @@ export default ({ open, onClose }: DialogProps) => {
                 addFlash({
                     key: 'tickets',
                     type: 'success',
-                    message: 'Your message has been sent successfully.',
+                    message: '您的消息发送成功。',
                 });
             })
             .catch((error) => {

@@ -30,7 +30,7 @@ class PayPalController extends ClientApiController
     public function purchase(PayPalRequest $request): JsonResponse
     {
         if ($this->settings->get('jexactyl::store:paypal:enabled') != 'true') {
-            throw new DisplayException('Unable to purchase via PayPal: module not enabled');
+            throw new DisplayException('无法通过 PayPal 购买：模块未启用');
         }
 
         $amount = $request->input('amount');
@@ -71,7 +71,7 @@ class PayPalController extends ClientApiController
         try {
             $response = $this->getClient()->execute($order);
         } catch (\Exception $ex) {
-            throw new DisplayException('Unable to process order.');
+            throw new DisplayException('无法处理订单。');
         }
 
         return new JsonResponse($response->result->links[1]->href ?? '/', 200, [], null, true);
@@ -93,7 +93,7 @@ class PayPalController extends ClientApiController
         try {
             $res = $this->getClient()->execute($order);
         } catch (DisplayException $ex) {
-            throw new DisplayException('Unable to process order.');
+            throw new DisplayException('无法处理订单。');
         }
 
         if ($res->statusCode == 200 || 201) {

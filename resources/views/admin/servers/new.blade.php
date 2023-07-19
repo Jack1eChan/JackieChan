@@ -7,7 +7,7 @@
 @section('content-header')
     <h1>Create Server<small>Add a new server to the panel.</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li><a href="{{ route('admin.servers') }}">Servers</a></li>
         <li class="active">Create Server</li>
     </ol>

@@ -71,15 +71,15 @@ class ServerController extends ClientApiController
         $fee = Node::find($request->input('node'))->deploy_fee;
 
         if (!$user->verified) {
-            throw new DisplayException('Server deployment is unavailable for unverified accounts.');
+            throw new DisplayException('未经验证的帐户，无法进行服务器部署。');
         }
 
         if (Nest::find($request->input('nest'))->private) {
-            throw new DisplayException('This nest is private and cannot be deployed to.');
+            throw new DisplayException('该预设是私有的，无法进行服务器部署。');
         }
 
         if ($user->store_slots < 1) {
-            throw new DisplayException('You do not have enough server slots in order to deploy a server.');
+            throw new DisplayException('您没有足够的服务器数量来部署服务器。');
         }
 
         $server = $this->creationService->handle($request);

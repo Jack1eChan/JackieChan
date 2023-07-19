@@ -2,14 +2,14 @@
 @include('partials/admin.jexactyl.nav', ['activeTab' => 'advanced'])
 
 @section('title')
-    Advanced
+    高级设置
 @endsection
 
 @section('content-header')
-    <h1>Advanced<small>Configure advanced settings for the Panel.</small></h1>
+    <h1>高级设置<small>配置成龙面板的高级设置。</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Jexactyl</li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
+        <li class="active">成龙面板</li>
     </ol>
 @endsection
 
@@ -20,28 +20,28 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Security Settings</h3>
+                            <h3 class="box-title">安全设置</h3>
                         </div>
                         <div class="box-body">
                             <div class="row">
                                 <div class="form-group col-md-4">
-                                    <label class="control-label">Require 2-Factor Authentication</label>
+                                    <label class="control-label">要求使用双因素身份验证</label>
                                     <div>
                                         <div class="btn-group" data-toggle="buttons">
                                             @php
                                                 $level = old('Jexactyl:auth:2fa_required', config('jexactyl.auth.2fa_required'));
                                             @endphp
                                             <label class="btn btn-primary @if ($level == 0) active @endif">
-                                                <input type="radio" name="Jexactyl:auth:2fa_required" autocomplete="off" value="0" @if ($level == 0) checked @endif> Not Required
+                                                <input type="radio" name="Jexactyl:auth:2fa_required" autocomplete="off" value="0" @if ($level == 0) checked @endif> 不需要
                                             </label>
                                             <label class="btn btn-primary @if ($level == 1) active @endif">
-                                                <input type="radio" name="Jexactyl:auth:2fa_required" autocomplete="off" value="1" @if ($level == 1) checked @endif> Admin Only
+                                                <input type="radio" name="Jexactyl:auth:2fa_required" autocomplete="off" value="1" @if ($level == 1) checked @endif> 仅管理员需要
                                             </label>
                                             <label class="btn btn-primary @if ($level == 2) active @endif">
-                                                <input type="radio" name="Jexactyl:auth:2fa_required" autocomplete="off" value="2" @if ($level == 2) checked @endif> All Users
+                                                <input type="radio" name="Jexactyl:auth:2fa_required" autocomplete="off" value="2" @if ($level == 2) checked @endif> 所有用户需要
                                             </label>
                                         </div>
-                                        <p class="text-muted"><small>If enabled, any account falling into the selected grouping will be required to have 2-Factor authentication enabled to use the Panel.</small></p>
+                                        <p class="text-muted"><small>如果启用，任何属于所选分组的帐户将需要启用双因素身份验证才能使用面板。</small></p>
                                     </div>
                                 </div>
                             </div>
@@ -51,18 +51,18 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box">
+                    <div class="box" hidden>
                         <div class="box-header with-border">
                             <h3 class="box-title">reCAPTCHA</h3>
                         </div>
                         <div class="box-body">
                             <div class="row">
                                 <div class="form-group col-md-4">
-                                    <label class="control-label">Status</label>
+                                    <label class="control-label">状态</label>
                                     <div>
                                         <select class="form-control" name="recaptcha:enabled">
-                                            <option value="true">Enabled</option>
-                                            <option value="false" @if(old('recaptcha:enabled', config('recaptcha.enabled')) == '0') selected @endif>Disabled</option>
+                                            <option value="true">启用</option>
+                                            <option value="false" @if(old('recaptcha:enabled', config('recaptcha.enabled')) == '0') selected @endif>禁用</option>
                                         </select>
                                         <p class="text-muted small">If enabled, login forms and password reset forms will do a silent captcha check and display a visible captcha if needed.</p>
                                     </div>
@@ -94,22 +94,22 @@
                     </div>
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">HTTP Connections</h3>
+                            <h3 class="box-title">HTTP 连接</h3>
                         </div>
                         <div class="box-body">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label class="control-label">Connection Timeout</label>
+                                    <label class="control-label">连接超时</label>
                                     <div>
                                         <input type="number" required class="form-control" name="Jexactyl:guzzle:connect_timeout" value="{{ old('Jexactyl:guzzle:connect_timeout', config('jexactyl.guzzle.connect_timeout')) }}">
-                                        <p class="text-muted small">The amount of time in seconds to wait for a connection to be opened before throwing an error.</p>
+                                        <p class="text-muted small">在抛出错误之前等待打开连接的时间（以秒为单位）。</p>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="control-label">Request Timeout</label>
+                                    <label class="control-label">请求超时</label>
                                     <div>
                                         <input type="number" required class="form-control" name="Jexactyl:guzzle:timeout" value="{{ old('Jexactyl:guzzle:timeout', config('jexactyl.guzzle.timeout')) }}">
-                                        <p class="text-muted small">The amount of time in seconds to wait for a request to be completed before throwing an error.</p>
+                                        <p class="text-muted small">在抛出错误之前等待请求完成的时间（以秒为单位）。</p>
                                     </div>
                                 </div>
                             </div>
@@ -117,39 +117,39 @@
                     </div>
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Automatic Allocation Creation</h3>
+                            <h3 class="box-title">自动创建端口</h3>
                         </div>
                         <div class="box-body">
                             <div class="row">
                                 <div class="form-group col-md-4">
-                                    <label class="control-label">Status</label>
+                                    <label class="control-label">状态</label>
                                     <div>
                                         <select class="form-control" name="Jexactyl:client_features:allocations:enabled">
-                                            <option value="false">Disabled</option>
-                                            <option value="true" @if(old('Jexactyl:client_features:allocations:enabled', config('jexactyl.client_features.allocations.enabled'))) selected @endif>Enabled</option>
+                                            <option value="false">禁用</option>
+                                            <option value="true" @if(old('Jexactyl:client_features:allocations:enabled', config('jexactyl.client_features.allocations.enabled'))) selected @endif>启用</option>
                                         </select>
-                                        <p class="text-muted small">If enabled users will have the option to automatically create new allocations for their server via the frontend.</p>
+                                        <p class="text-muted small">如果启用，用户将可以通过前端界面给他们的服务器自动创建新的端口。</p>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label class="control-label">Starting Port</label>
+                                    <label class="control-label">起始端口</label>
                                     <div>
                                         <input type="number" class="form-control" name="Jexactyl:client_features:allocations:range_start" value="{{ old('Jexactyl:client_features:allocations:range_start', config('jexactyl.client_features.allocations.range_start')) }}">
-                                        <p class="text-muted small">The starting port in the range that can be automatically allocated.</p>
+                                        <p class="text-muted small">可以自动分配的端口范围的起始端口。</p>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label class="control-label">Ending Port</label>
+                                    <label class="control-label">结束端口</label>
                                     <div>
                                         <input type="number" class="form-control" name="Jexactyl:client_features:allocations:range_end" value="{{ old('Jexactyl:client_features:allocations:range_end', config('jexactyl.client_features.allocations.range_end')) }}">
-                                        <p class="text-muted small">The ending port in the range that can be automatically allocated.</p>
+                                        <p class="text-muted small">可以自动分配的端口范围的结束端口。</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     {{ csrf_field() }}
-                    <button type="submit" name="_method" value="PATCH" class="btn btn-default pull-right">Save Settings</button>
+                    <button type="submit" name="_method" value="PATCH" class="btn btn-default pull-right">保存设置</button>
                 </div>
             </div>
         </form>

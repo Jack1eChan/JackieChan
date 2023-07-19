@@ -55,7 +55,7 @@ class AssignmentService
             $parsed = Network::parse($underlying);
         } catch (\Exception $exception) {
             /* @noinspection PhpUndefinedVariableInspection */
-            throw new DisplayException("Could not parse provided allocation IP address ({$underlying}): {$exception->getMessage()}", $exception);
+            throw new DisplayException("无法解析提供的 IP 地址 ({$underlying}): {$exception->getMessage()}", $exception);
         }
 
         $this->connection->beginTransaction();

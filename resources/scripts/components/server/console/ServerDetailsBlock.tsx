@@ -135,7 +135,7 @@ export default ({ className }: { className?: string }) => {
                 <ConsoleShareContainer />
             </StatBlock>
             {renewable && (
-                <StatBlock icon={faClock} title={'续费日期'}>
+                <StatBlock icon={faClock} title={'续订日期'}>
                     <RenewalInfo />
                 </StatBlock>
             )}

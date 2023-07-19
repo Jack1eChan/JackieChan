@@ -7,7 +7,7 @@
 @section('content-header')
     <h1>Nests<small>All nests currently available on this system.</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li class="active">Nests</li>
     </ol>
 @endsection

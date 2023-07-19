@@ -48,7 +48,7 @@ class ReferralsController extends ClientApiController
     public function use(ClientApiRequest $request): JsonResponse
     {
         if ($request->user()->referral_code) {
-            throw new DisplayException('You have already used a referral code.');
+            throw new DisplayException('您已经使用了邀请码。');
         }
 
         $this->useService->handle($request);
@@ -64,7 +64,7 @@ class ReferralsController extends ClientApiController
     public function store(ClientApiRequest $request): array
     {
         if ($request->user()->referralCodes->count() >= 5) {
-            throw new DisplayException('You cannot have more than 5 referral codes.');
+            throw new DisplayException('您不能拥有超过5个邀请代码。');
         }
 
         $code = $request->user()->referralCodes()->create([

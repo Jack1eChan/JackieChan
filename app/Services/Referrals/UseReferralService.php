@@ -31,7 +31,7 @@ class UseReferralService
         $referrer = User::where('id', $id)->first();
 
         if ($id == $user->id) {
-            throw new DisplayException('You can\'t use your own referral code.');
+            throw new DisplayException('您不能使用自己的邀请码。');
         }
 
         $user->update([

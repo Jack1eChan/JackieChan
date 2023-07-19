@@ -50,7 +50,7 @@ export default () => {
                 addFlash({
                     type: 'success',
                     key: 'store:resources',
-                    message: 'Resource has been added to your account.',
+                    message: '资源已添加到您的账户。',
                 });
             })
             .catch((error) => clearAndAddHttpError({ key: 'store:resources', error }));

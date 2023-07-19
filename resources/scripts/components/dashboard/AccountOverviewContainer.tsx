@@ -51,7 +51,7 @@ export default () => {
                     <UpdateEmailAddressForm />
                 </ContentBox>
                 {referrals && (
-                    <ContentBox title={'推荐码'} showFlashes={'account:referral'}>
+                    <ContentBox title={'邀请码'} showFlashes={'account:referral'}>
                         <AddReferralCodeForm />
                     </ContentBox>
                 )}

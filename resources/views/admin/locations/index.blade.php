@@ -7,7 +7,7 @@
 @section('content-header')
     <h1>Locations<small>All locations that nodes can be assigned to for easier categorization.</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li class="active">Locations</li>
     </ol>
 @endsection

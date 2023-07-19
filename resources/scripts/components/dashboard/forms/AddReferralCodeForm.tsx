@@ -31,7 +31,7 @@ export default () => {
                 addFlash({
                     type: 'success',
                     key: 'account:referral',
-                    message: 'You are now using a referral code.',
+                    message: '您正在使用邀请码。',
                 })
             )
             .catch((error) =>
@@ -63,13 +63,13 @@ export default () => {
                     {({ isSubmitting, isValid }) => (
                         <React.Fragment>
                             <Form className={'m-0'}>
-                                <Field id={'code'} type={'text'} name={'code'} label={'Enter referral code'} />
+                                <Field id={'code'} type={'text'} name={'code'} label={'输入邀请码'} />
                                 <div className={'mt-6'}>
                                     <Field
                                         id={'confirm_password'}
                                         type={'password'}
                                         name={'password'}
-                                        label={'Confirm Password'}
+                                        label={'确认密码'}
                                     />
                                 </div>
                                 <div className={'mt-6'}>

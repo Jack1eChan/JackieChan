@@ -31,7 +31,7 @@ class ProcessScheduleService
         $task = $schedule->tasks()->orderBy('sequence_id')->first();
 
         if (is_null($task)) {
-            throw new DisplayException('Cannot process schedule for task execution: no tasks are registered.');
+            throw new DisplayException('无法处理任务执行计划：未注册任何任务。');
         }
 
         $this->connection->transaction(function () use ($schedule, $task) {

@@ -29,7 +29,7 @@ export default () => {
                 addFlash({
                     key: 'settings',
                     type: 'success',
-                    message: 'Your server has been deleted.',
+                    message: '您的服务器已删除。',
                 });
                 // @ts-expect-error this is valid
                 window.location = '/';
@@ -38,19 +38,18 @@ export default () => {
     };
 
     return (
-        <TitledGreyBox title={'Delete Server'} className={'relative mb-12'}>
+        <TitledGreyBox title={'删除服务器'} className={'relative mb-12'}>
             <Dialog.Confirm
                 open={warn}
-                title={'Confirm server deletion'}
-                confirm={'Yes, delete server'}
+                title={'确认删除服务器'}
+                confirm={'删除服务器'}
                 onClose={() => setWarn(false)}
                 onConfirmed={() => {
                     setConfirm(true);
                     setWarn(false);
                 }}
             >
-                Your server will be deleted, with all files being purged and the server&apos;s resources being returned
-                to your account. Are you sure you wish to continue?
+                您的服务器将被删除，所有文件将被清除，并且服务器的资源将归还到您的账户。您确定要继续吗？
             </Dialog.Confirm>
             <form id={'delete-server-form'} onSubmit={submit}>
                 <Dialog
@@ -64,7 +63,7 @@ export default () => {
                     {name !== serverName && (
                         <>
                             <p className={'my-2 text-gray-400'}>
-                                Type <Code>{serverName}</Code> below.
+                                在下面输入 <Code>{serverName}</Code> 。
                             </p>
                             <Input type={'text'} value={name} onChange={(n) => setName(n.target.value)} />
                         </>
@@ -75,20 +74,19 @@ export default () => {
                         className={'mt-2'}
                         form={'delete-server-form'}
                     >
-                        Yes, delete server
+                        删除服务器
                     </Button>
                 </Dialog>
             </form>
             <p className={'text-sm'}>
-                Deleting your server will shut down any processes, return the resources to your account and delete all
-                files associated with the instance - as well as backups, databases and settings.{' '}
+                删除服务器将关闭所有进程，将资源归还到您的账户，并删除与实例相关的所有文件，包括备份、数据库和设置。{' '}
                 <strong className={'font-medium'}>
-                    All data will be permenantly lost if you continue with this action.
+                    如果继续执行此操作，所有数据将永久丢失。
                 </strong>
             </p>
             <div className={'mt-6 font-medium text-right'}>
                 <Button.Danger variant={Button.Variants.Secondary} onClick={() => setWarn(true)}>
-                    Delete Server
+                    删除服务器
                 </Button.Danger>
             </div>
         </TitledGreyBox>

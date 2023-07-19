@@ -48,7 +48,7 @@ class ServerController extends Controller
             $this->settings->set('jexactyl::renewal:' . $key, $value);
         }
 
-        $this->alert->success('Jexactyl Server settings has been updated.')->flash();
+        $this->alert->success('修改成龙面板服务器设置成功。')->flash();
 
         return redirect()->route('admin.jexactyl.server');
     }

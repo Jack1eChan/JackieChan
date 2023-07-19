@@ -2,14 +2,14 @@
 @include('partials/admin.jexactyl.nav', ['activeTab' => 'approvals'])
 
 @section('title')
-    User Approvals
+    审批设置
 @endsection
 
 @section('content-header')
-    <h1>User Approvals<small>Allow or deny requests to create accounts.</small></h1>
+    <h1>用户审批<small>允许或拒绝创建账户的请求。</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Jexactyl</li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
+        <li class="active">成龙面板</li>
     </ol>
 @endsection
 
@@ -27,21 +27,21 @@
                 ">
                     <div class="box-header with-border">
                         <i class="fa fa-users"></i>
-                        <h3 class="box-title">Approval System <small>Decide whether the approval system is enabled or disabled.</small></h3>
+                        <h3 class="box-title">审批系统 <small>设置是否启用或禁用审批系统。</small></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
                             <div class="form-group col-md-4">
-                                <label class="control-label">Enabled</label>
+                                <label class="control-label">开关</label>
                                 <div>
                                     <select name="enabled" class="form-control">
-                                        <option @if ($enabled == 'false') selected @endif value="false">Disabled</option>
-                                        <option @if ($enabled == 'true') selected @endif value="true">Enabled</option>
+                                        <option @if ($enabled == 'false') selected @endif value="false">禁用</option>
+                                        <option @if ($enabled == 'true') selected @endif value="true">启用</option>
                                     </select>
-                                    <p class="text-muted"><small>Determines whether users must be approved by an admin to use the Panel.</small></p>
+                                    <p class="text-muted"><small>设置用户是否需要管理员批准才能使用面板。</small></p>
                                 </div>
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-4" hidden>
                                 <label class="control-label" for="webhook">Webhook URL</label>
                                 <input name="webhook" id="webhook" class="form-control" value="{{ $webhook }}">
                                 <p class="text-muted"><small>Provide the Discord Webhook URL to use when a user needs to be approved.</small></p>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="box box-footer">
                         {!! csrf_field() !!}
-                        <button type="submit" name="_method" value="PATCH" class="btn btn-default pull-right">Save Changes</button>
+                        <button type="submit" name="_method" value="PATCH" class="btn btn-default pull-right">保存修改</button>
                     </div>
                 </div>
             </div>
@@ -61,24 +61,24 @@
             <div class="box box-success">
                 <div class="box-header with-border">
                     <i class="fa fa-list"></i>
-                    <h3 class="box-title">Approval Requests <small>Allow or deny requests to create accounts.</small></h3>
+                    <h3 class="box-title">审批请求 <small>允许或拒绝创建账户的请求。</small></h3>
                     <form id="massdenyform" action="{{ route('admin.jexactyl.approvals.all', 'deny') }}" method="POST">
                         {!! csrf_field() !!}
-                        <button id="denyAllBtn" class="btn btn-danger pull-right">Deny All</button>
+                        <button id="denyAllBtn" class="btn btn-danger pull-right">拒绝全部</button>
                     </form>
                     <form id="massapproveform" action="{{ route('admin.jexactyl.approvals.all', 'approve') }}" method="POST">
                         {!! csrf_field() !!}
-                        <button id="approveAllBtn" class="btn btn-success pull-right">Approve All</button>
+                        <button id="approveAllBtn" class="btn btn-success pull-right">允许全部</button>
                     </form>
                  </div>
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <tbody>
                             <tr>
-                                <th>User ID</th>
-                                <th>Email</th>
-                                <th>Username</th>
-                                <th>Registered</th>
+                                <th>用户 ID</th>
+                                <th>邮箱</th>
+                                <th>用户名</th>
+                                <th>注册时间</th>
                                 <th></th>
                                 <th></th>
                             </tr>

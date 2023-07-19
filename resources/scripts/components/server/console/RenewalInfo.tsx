@@ -27,7 +27,7 @@ export default () => {
                 addFlash({
                     key: 'console:share',
                     type: 'success',
-                    message: 'Server has been renewed.',
+                    message: '续订服务器成功。',
                 });
             })
             .catch((error) => {
@@ -38,7 +38,7 @@ export default () => {
                 addFlash({
                     key: 'console:share',
                     type: 'danger',
-                    message: 'Unable to renew your server. Are you sure you have enough credits?',
+                    message: '续订服务器失败，您没有足够的积分。',
                 });
             });
     };

@@ -33,7 +33,7 @@ export default () => {
     const verify = () => {
         apiVerify().then((data) => {
             if (data.success)
-                addFlash({ type: 'info', key: 'dashboard', message: 'Verification email has been resent.' });
+                addFlash({ type: 'info', key: 'dashboard', message: '已重新发送验证邮件。' });
         });
     };
 

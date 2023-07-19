@@ -12,11 +12,12 @@ return [
     */
 
     'currencies' => [
-        'EUR' => 'Euro',
-        'USD' => 'US Dollar',
-        'JPY' => 'Japanese Yen',
-        'GBP' => 'Pound Sterling',
-        'CAD' => 'Canadian Dollar',
-        'AUD' => 'Australian Dollar',
+        'CNY' => '人民币',
+        'EUR' => '欧元',
+        'USD' => '美元',
+        'JPY' => '日元',
+        'GBP' => '英镑',
+        'CAD' => '加元',
+        'AUD' => '澳元',
     ],
 ];

@@ -5,10 +5,10 @@
 @endsection
 
 @section('content-header')
-    <h1>{{ $host->name }}<small>Viewing associated databases and details for this database host.</small></h1>
+    <h1>{{ $host->name }}<small>查看与此数据库主机相关的数据库和详细信息。</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li><a href="{{ route('admin.databases') }}">Database Hosts</a></li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
+        <li><a href="{{ route('admin.databases') }}">数据库主机</a></li>
         <li class="active">{{ $host->name }}</li>
     </ol>
 @endsection
@@ -19,27 +19,27 @@
         <div class="col-sm-6">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Host Details</h3>
+                    <h3 class="box-title">主机详情</h3>
                 </div>
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="pName" class="form-label">Name</label>
+                        <label for="pName" class="form-label">名称</label>
                         <input type="text" id="pName" name="name" class="form-control" value="{{ old('name', $host->name) }}" />
                     </div>
                     <div class="form-group">
-                        <label for="pHost" class="form-label">Host</label>
+                        <label for="pHost" class="form-label">主机</label>
                         <input type="text" id="pHost" name="host" class="form-control" value="{{ old('host', $host->host) }}" />
-                        <p class="text-muted small">The IP address or FQDN that should be used when attempting to connect to this MySQL host <em>from the panel</em> to add new databases.</p>
+                        <p class="text-muted small">在尝试从成龙面板连接到此 MySQL 主机以添加新数据库时应使用的 IP 地址或 FQDN。</p>
                     </div>
                     <div class="form-group">
-                        <label for="pPort" class="form-label">Port</label>
+                        <label for="pPort" class="form-label">端口</label>
                         <input type="text" id="pPort" name="port" class="form-control" value="{{ old('port', $host->port) }}" />
-                        <p class="text-muted small">The port that MySQL is running on for this host.</p>
+                        <p class="text-muted small">此主机上运行的 MySQL 的端口。</p>
                     </div>
                     <div class="form-group">
-                        <label for="pNodeId" class="form-label">Linked Node</label>
+                        <label for="pNodeId" class="form-label">绑定节点</label>
                         <select name="node_id" id="pNodeId" class="form-control">
-                            <option value="">None</option>
+                            <option value="">无</option>
                             @foreach($locations as $location)
                                 <optgroup label="{{ $location->short }}">
                                     @foreach($location->nodes as $node)

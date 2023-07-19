@@ -31,7 +31,7 @@ export default () => {
                 addFlash({
                     type: 'success',
                     key: 'account:username',
-                    message: 'Your username has been changed.',
+                    message: '您的用户名修改成功。',
                 })
             )
             .catch((error) =>

@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 
 @section('title')
-    Application API
+    应用 API
 @endsection
 
 @section('content-header')
-    <h1>Application API<small>Control access credentials for managing this Panel via the API.</small></h1>
+    <h1>应用 API<small>通过 API 管理此面板的访问密钥。</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Application API</li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
+        <li class="active">应用 API</li>
     </ol>
 @endsection
 
@@ -17,18 +17,18 @@
         <div class="col-xs-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Credentials List</h3>
+                    <h3 class="box-title">密钥列表</h3>
                     <div class="box-tools">
-                        <a href="{{ route('admin.api.new') }}" class="btn btn-sm btn-primary">Create New</a>
+                        <a href="{{ route('admin.api.new') }}" class="btn btn-sm btn-primary">创建</a>
                     </div>
                 </div>
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <tr>
                             <th>Key</th>
-                            <th>Memo</th>
-                            <th>Last Used</th>
-                            <th>Created</th>
+                            <th>备注</th>
+                            <th>上次使用时间</th>
+                            <th>创建于</th>
                             <th></th>
                         </tr>
                         @foreach($keys as $key)
@@ -67,7 +67,7 @@
                 swal({
                     type: 'error',
                     title: 'Revoke API Key',
-                    text: 'Once this API key is revoked any applications currently using it will stop working.',
+                    text: '一旦此 API 密钥被删除，当前使用它的任何应用程序都将停止工作。',
                     showCancelButton: true,
                     allowOutsideClick: true,
                     closeOnConfirm: false,
@@ -85,7 +85,7 @@
                         swal({
                             type: 'success',
                             title: '',
-                            text: 'API Key has been revoked.'
+                            text: 'API 密钥删除成功。'
                         });
                         self.parent().parent().slideUp();
                     }).fail(function (jqXHR) {
@@ -93,7 +93,7 @@
                         swal({
                             type: 'error',
                             title: 'Whoops!',
-                            text: 'An error occurred while attempting to revoke this key.'
+                            text: '尝试删除此密钥时发生错误。'
                         });
                     });
                 });

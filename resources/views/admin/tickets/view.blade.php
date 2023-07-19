@@ -7,7 +7,7 @@
 @section('content-header')
     <h1>Ticket #{{ $ticket->id }}<small>{{ $ticket->title }}</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li><a href="{{ route('admin.tickets.index') }}">Tickets</a></li>
         <li class="active">View Ticket {{ $ticket->id }}</li>
     </ol>

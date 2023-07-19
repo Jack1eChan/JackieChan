@@ -34,7 +34,7 @@ class ResourcePurchaseService
             ->first();
 
         if ($balance < $cost) {
-            throw new DisplayException('You do not have enough credits.');
+            throw new DisplayException('您没有足够的积分。');
         }
 
         $user->update([
@@ -54,7 +54,7 @@ class ResourcePurchaseService
             'cpu' => 50,
             'disk', 'memory' => 1024,
             'slots', 'ports', 'backups', 'databases' => 1,
-            default => throw new DisplayException('Unable to parse resource type')
+            default => throw new DisplayException('无法解析资源类型')
         };
     }
 

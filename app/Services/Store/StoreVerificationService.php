@@ -36,7 +36,7 @@ class StoreVerificationService
             $value = DB::table('users')->where('id', $request->user()->id)->pluck('store_' . $type)->first();
 
             if ($value < $request->input($type)) {
-                throw new DisplayException('You only have' . $value . ' ' . $type . ', so you cannot deploy this server.');
+                throw new DisplayException('您只有' . $value . ' ' . $type . ', 所以您不能部署此服务器。');
             }
         }
     }
@@ -57,7 +57,7 @@ class StoreVerificationService
             $amount = $request->input($type .= $suffix);
 
             if ($limit < $amount) {
-                throw new DisplayException('You cannot deploy with ' . $amount . ' ' . $type . ', as an admin has set a limit of ' . $limit);
+                throw new DisplayException('您不能部署 ' . $amount . ' ' . $type . ', 管理员设置了限制 ' . $limit);
             }
         }
     }
@@ -70,7 +70,7 @@ class StoreVerificationService
         $fee = Node::find($request->input('node'))->deploy_fee;
 
         if ($fee > $request->user()->store_balance) {
-            throw new DisplayException('You do not have enough credits to deploy to this node, as it has a deployment fee of ' . $fee . ' credits.');
+            throw new DisplayException('您没有足够的积分来部署到此节点，因为它的部署费用为 ' . $fee . ' 积分。');
         }
     }
 }

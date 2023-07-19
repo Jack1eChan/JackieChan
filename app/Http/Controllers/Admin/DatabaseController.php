@@ -71,7 +71,7 @@ class DatabaseController extends Controller
         } catch (\Exception $exception) {
             if ($exception instanceof \PDOException || $exception->getPrevious() instanceof \PDOException) {
                 $this->alert->danger(
-                    sprintf('There was an error while trying to connect to the host or while executing a query: "%s"', $exception->getMessage())
+                    sprintf('连接主机或执行查询时出现错误: "%s"', $exception->getMessage())
                 )->flash();
 
                 return redirect()->route('admin.databases')->withInput($request->validated());
@@ -80,7 +80,7 @@ class DatabaseController extends Controller
             }
         }
 
-        $this->alert->success('Successfully created a new database host on the system.')->flash();
+        $this->alert->success('成功在系统上创建了一个新的数据库主机。')->flash();
 
         return redirect()->route('admin.databases.view', $host->id);
     }
@@ -96,13 +96,13 @@ class DatabaseController extends Controller
 
         try {
             $this->updateService->handle($host->id, $request->normalize());
-            $this->alert->success('Database host was updated successfully.')->flash();
+            $this->alert->success('数据库主机修改成功。')->flash();
         } catch (\Exception $exception) {
             // Catch any SQL related exceptions and display them back to the user, otherwise just
             // throw the exception like normal and move on with it.
             if ($exception instanceof \PDOException || $exception->getPrevious() instanceof \PDOException) {
                 $this->alert->danger(
-                    sprintf('There was an error while trying to connect to the host or while executing a query: "%s"', $exception->getMessage())
+                    sprintf('连接主机或执行查询时出现错误: "%s"', $exception->getMessage())
                 )->flash();
 
                 return $redirect->withInput($request->normalize());
@@ -122,7 +122,7 @@ class DatabaseController extends Controller
     public function delete(int $host): RedirectResponse
     {
         $this->deletionService->handle($host);
-        $this->alert->success('The requested database host has been deleted from the system.')->flash();
+        $this->alert->success('所请求的数据库主机已从系统中删除。')->flash();
 
         return redirect()->route('admin.databases');
     }

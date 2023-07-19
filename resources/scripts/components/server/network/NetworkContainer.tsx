@@ -52,8 +52,8 @@ const NetworkContainer = () => {
 
     return (
         <ServerContentBlock
-            title={'Network'}
-            description={'Configure external networking and ports.'}
+            title={'网络'}
+            description={'配置外部网络和端口。'}
             showFlashKey={'server:network'}
         >
             {!data ? (
@@ -68,12 +68,11 @@ const NetworkContainer = () => {
                             <SpinnerOverlay visible={loading} />
                             <div css={tw`mt-6 sm:flex items-center justify-end`}>
                                 <p css={tw`text-sm text-neutral-300 mb-4 sm:mr-6 sm:mb-0`}>
-                                    You are currently using {data.length} of {allocationLimit} allowed allocations for
-                                    this server.
+                                    您当前使用了 {data.length} 个端口，服务器总共允许使用 {allocationLimit} 个端口。
                                 </p>
                                 {allocationLimit > data.length && (
                                     <Button css={tw`w-full sm:w-auto`} onClick={onCreateAllocation}>
-                                        Create Allocation
+                                        新增端口
                                     </Button>
                                 )}
                             </div>
